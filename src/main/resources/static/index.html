@@ -4,10 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Finder</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
 </head>
 <body>
-    <header>
-        Weather app
-    </header>
+    <h1>
+        Weather App
+    </h1>        
+    <main>
+        <!-- City Selection and View City -->
+        <p>
+            <label for="citySelect">City: </label>
+            <select id="citySelect" name="where">
+                <option value="">Choose a city</option>
+                <option>Burnaby</option>
+                <option>Halifax</option>
+                <option>Montreal</option>
+                <option>Ottawa</option>
+                <option>Saskatoon</option>
+                <option>Toronto</option>
+                <option>Vancouver</option>
+            </select>
+        </p>
+        <button type="button" id="viewButton">View City</button>
+        <!-- Weather display -->
+        <section id="results">
+            <p id="loading" hidden>Loading...</p>
+            <p id="error" hidden></p>
+            <div id="weather"></div>
+        </section>
+
+
+
+        <!-- Top 10 Cities -->
+        <h1>Top 10 Cities</h1>
+        <ol>
+            <li><button type="button" data-city="Vancouver">Vancouver</button></li>
+            <li><button type="button" data-city="Burnaby">Burnaby</button></li>
+            <li><button type="button" data-city="Surrey">Surrey</button></li>
+            <li><button type="button" data-city="Toronto">Toronto</button></li>
+            <li><button type="button" data-city="Ottawa">Ottawa</button></li>
+            <li><button type="button" data-city="Mississauga">Mississauga</button></li>
+            <li><button type="button" data-city="Montreal">Montreal</button></li>
+            <li><button type="button" data-city="Calgary">Calgary</button></li>
+            <li><button type="button" data-city="Edmonton">Edmonton</button></li>
+            <li><button type="button" data-city="Winnipeg">Winnipeg</button></li>
+        </ol>
+
+    </main>
 </body>
 </html>
