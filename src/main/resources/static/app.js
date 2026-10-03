@@ -1,9 +1,21 @@
+// View City Listener
+const viewButton = document.getElementById("viewButton");
+const citySelect = document.getElementById("citySelect");
+
+viewButton.addEventListener("click", () => {
+    const city = citySelect.value
+    if (!city) return;
+    getWeather(city)
+});
+
+// Top 10 Listener
 document.querySelectorAll("[data-city]").forEach(button => {
     button.addEventListener("click", () => {
         getWeather(button.dataset.city)
     });
 });
 
+// Weather Getter
 async function getWeather(city) {
     // grab the coordinates
     const location_url = `https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1&countryCode=CA`;
@@ -18,12 +30,12 @@ async function getWeather(city) {
     renderWeather(city, weather_data.current);
 }
 
+// Display Weather
 function renderWeather(name, current){
     document.getElementById("weather").textContent = `
-    ${name}
-    Temperature: ${current.temperature_2m}
-    Wind Speed: ${current.wind_speed_10m}
-    Humidity: ${current.relative_humidity_2m}
+    City: ${name}
+    Temperature: ${current.temperature_2m}°C
+    Wind Speed: ${current.wind_speed_10m}km/h
+    Humidity: ${current.relative_humidity_2m}%
     `;
-
 }
